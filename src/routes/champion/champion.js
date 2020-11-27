@@ -24,7 +24,6 @@ async function getAllChampions(){
         .then(resp => resp.data)
         .catch(err => err)
 
-    console.log(resp)
     return resp
 }
 

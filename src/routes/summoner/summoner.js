@@ -1,6 +1,6 @@
 const express = require("express");
 const axios = require("axios");
-const { apiKey }= require("./../../secrets.json")
+const { apiKey }= require("../../../secrets.json")
 let router = express.Router();
 
 router.get('/:summonerName', async (req, res) => {
