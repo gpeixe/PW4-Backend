@@ -12,3 +12,8 @@
  ### Para  rodar a aplicação:
  - npm start
  
+ 
+### Rotas:
+ GET: All Champions - http://localhost:3000/champion
+ GET: Champion By Name - http://localhost:3000/champion/championName
+ GET: Summoner Profile By Name - http://localhost:3000/summoner/summonerName
