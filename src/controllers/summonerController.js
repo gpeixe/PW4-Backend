@@ -1,6 +1,6 @@
 const axios = require("axios");
-const { riotApiKey }= require("./../../secrets.json")
-
+//const { riotApiKey }= require("./../../secrets.json")
+const { riotApiKey }= require("./../../mockSecrets.json")
 exports.get_summoner_profile_by_name = async function (req,  res){
 
     const { summonerName }= req.params
