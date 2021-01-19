@@ -4,7 +4,7 @@
 ### Para instalar as dependencias:
  - npm install
 
-### Criar um json para a Riot API Key (https://developer.riotgames.com/):
+### Criar um json na raiz do projeto (mockSecrets.json) para a Riot API Key (https://developer.riotgames.com/):
  - secrets.json = {
   "riotApiKey": "Insira sua Riot API Key"
  }
