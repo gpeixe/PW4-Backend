@@ -1,10 +1,10 @@
 const axios = require("axios");
-//const { riotApiKey }= require("./../../secrets.json")
-const { riotApiKey }= require("./../../mockSecrets.json")
+const { riotApiKey }= require("./../../secrets.json")
+
 exports.get_summoner_profile_by_name = async function (req,  res){
 
     const { summonerName }= req.params
-    
+
     const summoner = await axios.get(`https://br1.api.riotgames.com/lol/summoner/v4/summoners/by-name/${summonerName}?api_key=${riotApiKey}`)
         .then(resp => resp.data)
         .catch(err => err)
@@ -21,7 +21,6 @@ exports.get_summoner_profile_by_name = async function (req,  res){
             flexQueue,
             soloQueue,
         }
-      
+
     res.json(profile)
 }
-
