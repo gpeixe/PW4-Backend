@@ -4,10 +4,18 @@ exports.get_champion_by_name = async function (req, res){
     const { championName } = req.params
 
     const champion = await axios.get(`http://ddragon.leagueoflegends.com/cdn/10.21.1/data/pt_BR/champion/${championName}.json`)
-        .then(resp => resp.data)
+        .then(resp => Object.values(resp.data.data).pop())
         .catch(err => err)
 
-   res.json(resp)
+
+   champion['skins'].forEach( skin => {
+      skin['skinImage'] = `http://ddragon.leagueoflegends.com/cdn/img/champion/splash/${champion.name}_${skin.num}.jpg`
+    });
+
+   champion['tileImage'] = `http://ddragon.leagueoflegends.com/cdn/img/champion/tiles/${champion.name}_0.jpg`
+   champion['splashImage'] = `http://ddragon.leagueoflegends.com/cdn/img/champion/splash/${champion.name}_0.jpg`
+    
+   res.json(champion)
 }
 
 
@@ -18,12 +26,14 @@ exports.get_all_champions = async function (req, res){
 
     const championsArray = Object.values(championsObject)
 
-    const championsWithImages = championsArray.map((champion) => {
+    const championsWithCardImage = championsArray.map((champion) => {
+      const name = champion.name
+
       return {
         champion,
-        championImage: `http://ddragon.leagueoflegends.com/cdn/img/champion/tiles/${champion.name}_0.jpg`
+        image: `http://ddragon.leagueoflegends.com/cdn/img/champion/tiles/${name}_0.jpg`,
       }
   })
 
-    res.json(championsWithImages)
+    res.json(championsWithCardImage)
 }
