@@ -20,6 +20,7 @@ exports.get_champion_by_name = async function (req, res){
       const spellKey = spell.id.split("").pop()
       spell["image"] = `http://ddragon.leagueoflegends.com/cdn/11.2.1/img/spell/${champion.id}${spellKey}.png`
   })
+
   const championDTO = {
     id: champion.id,
     name: champion.name,
@@ -37,6 +38,7 @@ exports.get_champion_by_name = async function (req, res){
   }
 
    res.json(championDTO)
+   
 }
 
 
