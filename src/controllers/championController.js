@@ -38,7 +38,7 @@ exports.get_champion_by_name = async function (req, res){
   }
 
    res.json(championDTO)
-   
+
 }
 
 
@@ -49,6 +49,7 @@ exports.get_all_champions = async function (req, res){
 
     const championsDTO = champions.map((champion) => {
       return {
+        id: champion.id,
         name: champion.name,
         key: champion.key,
         image: `http://ddragon.leagueoflegends.com/cdn/img/champion/tiles/${champion.id}_0.jpg`,
